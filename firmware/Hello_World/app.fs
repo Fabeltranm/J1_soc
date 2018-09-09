@@ -1,4 +1,5 @@
-: usar_dpRAM \ envia los 6 primeros terminos de la serie de Fibonnacci a la dpRAM, el periferico invierte su orden, luego son leidos de vuelta
+
+  : usar_dpRAM \ envia los 6 primeros terminos de la serie de Fibonnacci a la dpRAM, el periferico invierte su orden, luego son leidos de vuelta
 
 d# 1 h# 7000 !  \ escribe 1 en el registro h# 7000
 d# 2 h# 7002 !  \ escribe 2 en el registro h# 7002
@@ -17,7 +18,7 @@ h# 7008 @ \ lee lo que hay en el registro h# 7008, queda almacenado en la pila
 h# 700A @ \ lee lo que hay en el registro h# 700A, queda almacenado en la pila
 
 ;
-: multiplicar		 \ utiliza peripheral_mult.v
+: multiplicar		\ utiliza peripheral_mult.v
 swap multi_a !
 multi_b !
 d# 1 multi_init !
@@ -38,14 +39,29 @@ div_c @
 
 : main 
 
- d# 5 d# 3
-\ do
-\    1+
-\    dup
-\    emit-uart 
-\ loop
-
+d# 5  d# 250  d# 10 
 multiplicar
+
+dup
+emit-uart
+d# 5 rshift
+emit-uart
+
+;
+
+
+
+
+
+
+
+
+
+\ d# 11 emit-uart 
+\ d# 11 emit-uart 
+\ d# 11 emit-uart 
+\ d# 11 emit-uart 
+
 \ fibonacci 
 
 \ s" A " type-uart   \ Almacena el string y la longitud en la pila en el top
@@ -75,4 +91,4 @@ multiplicar
 \ ROT	 ( n1 n2 n3 -- n2 n3 n1 )	 Rotates the third item to the top.	
 \ DROP	 ( n -- )	 Discards the top stack item.	
 \ : PENTAJUMPS  50 0 DO  I .  5 +LOOP ;
-;
+

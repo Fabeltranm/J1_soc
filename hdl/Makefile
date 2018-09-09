@@ -99,5 +99,7 @@ iversim:  build/project.src
 	vvp simulation/$(DESIGN)_TB.vvp; mv $(DESIGN)_TB.vcd simulation/
 	gtkwave simulation/$(DESIGN)_TB.vcd&
 
-upload: $(DESIGN).bit
-	scp $(DESIGN).bit root@$(SAKC_IP): 
+upload: $(DESIGN).bit        
+	djtgcfg init -d Nexys4
+	djtgcfg prog -d Nexys4 -i 0 -f j1soc.bit
+

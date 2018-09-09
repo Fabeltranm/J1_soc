@@ -38,12 +38,7 @@ div_c @
 
 : main 
 
- d# 1 d# 1 d# 1 d# 1
-\ do
-\    1+
-\    dup
-\    emit-uart 
-\ loop
+ d# 5 d# 1
 
 multiplicar
 \ fibonacci 
