@@ -13,5 +13,6 @@
 3. En el archivo Makefile borre su contenido y   agrege la siguiente linea
   
   `"C:\Program Files (x86)\gforth\gforth.exe" -e 'include main.fs bye`
+  
 4. Agrege la extensión .bat al archivo Makefile
 
