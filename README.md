@@ -3,7 +3,8 @@
 ## Instalar gforth en linux
 
 1. Ejecute el siguiente comando 
-  'sudo apt install gforth'
+
+    sudo apt install gforth
 
 ## Instalar gforth en windows
 
